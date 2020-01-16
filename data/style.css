@@ -1,0 +1,75 @@
+body {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #ffffff;
+  margin: 5px;
+  background: #ffffff;
+  min-width: 400px;
+  max-width: 600px;
+ }
+h1 {
+  font-size: 18px;
+  text-align: center;
+  color: #4CAF50;
+  background: #8bc34a26;
+  border-radius: 7px 7px 0px 0px;
+  padding: 7px 4px 7px 4px;
+  margin: 0px;
+}
+h2 {
+  font-size: 12px;
+  text-align: left;
+  color: rgb(0, 0, 0);
+  background: #eef6e4;
+  padding: 4px 8px 4px 8px;
+  margin: 0px;
+  border: #8BC34A solid 2px;
+}
+h3 {
+  font-size: 12px;
+  text-align: left;
+  font-weight: normal;
+  background: #ffffff;
+  padding: 7px;
+  margin: 0px;
+  border: #8bc34a solid 2px;
+  border-radius: 0px 0px 7px 7px;
+}
+table {
+  width: 100%;
+}
+th {
+  font-size: 11px;
+  background: rgb(86, 181, 135);
+  text-align: right;
+  padding: 5px;
+  border-radius: 3px 0px 0px 3px;
+  width: 25%;
+}
+td {
+  font-size: 11px;
+  background: #eef6e4;
+  padding: 5px;
+  border-radius: 0px 3px 3px 0px;
+  color: #4caf50;
+}
+a {
+  font-size: 12px;
+  color: #4caf50;
+}
+input[type=submit] {
+  border: 2px solid #009688;
+  border-radius: 5px;
+  padding: 5px;
+  width: 90px;
+}
+
+input {
+  color: green;
+}
+.msg {
+  font-size: 14px;
+  text-align: center;
+  padding: 5px;
+  border-radius: 3px;
+}

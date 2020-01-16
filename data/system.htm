@@ -1,0 +1,115 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=auto">
+  <title>Bifi Garden - System Setup</title>
+  <link href="style.css" rel="stylesheet">
+
+</head>
+<body>
+  <h1>Bifi Garden - Irrigation Monitoring and Control System</h1>
+  <h2>
+    <a href="/">Info</a> |
+    <a href="monitor">Monitor</a> |
+    <a href="config">Setup</a> |
+    <a href="system">System</a> |
+    <a href="reboot" onclick="return confirm('Are you sure you want to restart the device?')">Reboot</a>
+  </h2>
+  <h3>
+  <form name="system" action="systemSave" method="post">
+  <table>
+    <tr>
+      <th colspan="2" class="msg">System Config</th>
+    </tr>
+    <tr>
+      <th>Hostname</th>
+      <td>
+        <input type="text" name="id" value="#id#" size="30" maxlength="29">
+      </td>
+    </tr>
+
+    <tr>
+      <th rowspan="3">Wi-Fi</th>
+      <td>
+        <input type="radio" id="WifiModeAP" name="WifiMode"  value="WifiAP" #APMode# > AP Mode &nbsp;&nbsp;
+        <input type="radio" id="WifiModeSTA" name="WifiMode" value="WifiSTA" #STAMode# > Station Mode
+      </td>
+    </tr>
+    <tr>
+      <td>SSID: <input type="text" id="ssid" name="ssid" value="#ssid#" size="26" maxlength="29"></td>
+      
+    </tr>
+    <tr>
+      <td>Senha: <input type="text" id="pw" name="pw" size="25" maxlength="29"></td>
+    </tr>
+    
+    <tr>
+      <th rowspan="7">MQTT</th>
+      <td><input type="checkbox" id="mqttEnable" name="mqttEnable" #mqttEnable#  onclick="mqttDisable(this.checked)"/> Enable</label></td>
+    </tr>
+    <tr>
+      <td>Name: <input type="text" id="mqttName" name="mqttName" value="#mqttName#" size="41" maxlength="29" ></td>
+    </tr>
+    <tr>
+      <td>Server Adress: <input type="text" id="mqttServerAdress" name="mqttServerAdress" value="#mqttServerAdress#" size="34" maxlength="49"></td>
+    </tr>
+    <tr>
+      <td>Port: <input type="number" id="mqttServerPort" name="mqttServerPort" value="#mqttServerPort#" size="6" maxlength="6"></td>
+    </tr>
+    <tr>
+      <td>User: <input type="text"  id="mqttUser" name="mqttUser" value="#mqttUser#" size="42" maxlength="29"></td>
+    </tr>
+    <tr>
+      <td>Password: <input type="text" id="mqttPw" name="mqttPw" size="38" maxlength="29"></td>
+    </tr>
+    <tr>
+      <td>
+        <input id="mqttTLS" name="mqttTLS" type="checkbox" #mqttTLS# /> SSL/TLS</label>
+        <input id="mqttSSTLS" name="mqttSSTLS" type="checkbox" #mqttSSTLS#/> Self-signed SSL/TLS</label>
+      </td>
+    </tr>
+    <tr>
+      <th rowspan="4">ThingSpeak</th>
+      <td><input type="checkbox" id="tSEnable" name="TSEnable" #tSEnable# onclick="TSDisable(this.checked)"/> Enable</label></td>
+    </tr>
+    <tr>
+      <td>Channel Id: <input type="text" id="tSChannelId" name="tSChannelId" value="#tSChannelId#" size="34" maxlength="49"></td>
+    </tr>
+    <tr>
+    <tr>
+      <td>Write Key: <input type="text" id="tSWriteKey" name="tSWriteKey" value="#tSWriteKey#" size="34" maxlength="49"></td>
+    </tr>
+ 
+    <tr>
+      <th colspan="2" class="msg"><input id="save" type="submit" value="Save" onClick="return confirm('Save settings?')"></th>
+    </tr>
+
+  </table>
+  </form>
+  </h3>
+</body>
+<script type="text/javascript">
+
+
+document.addEventListener("DOMContentLoaded", function(){
+  mqttDisable(document.getElementById('mqttEnable').checked);
+});
+document.addEventListener("DOMContentLoaded", function(){
+  TSDisable(document.getElementById('tSEnable').checked);
+});
+  function mqttDisable(select) {
+  document.getElementById('mqttName').disabled = !select;
+  document.getElementById('mqttServerAdress').disabled = !select;
+  document.getElementById('mqttServerPort').disabled = !select;
+  document.getElementById('mqttUser').disabled = !select;
+  document.getElementById('mqttPw').disabled = !select;
+  document.getElementById('mqttTLS').disabled = !select;
+  document.getElementById('mqttSSTLS').disabled = !select;
+}
+function TSDisable(select) {
+  document.getElementById('tSChannelId').disabled = !select;
+  document.getElementById('tSWriteKey').disabled = !select;
+}
+
+</script>
+</html>

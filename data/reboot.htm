@@ -1,0 +1,42 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=auto">
+  <title>Bifi Garden - Reboot</title>
+  <link href="style.css" rel="stylesheet">
+  <script>
+    var t = 15;
+
+    function decT() {
+      t--;
+      document.getElementById("time").innerHTML = t;
+      if (t == 0) {
+        window.location = "/";
+      } else {
+        window.setTimeout("decT()", 1000);
+      }
+    }
+  </script>
+</head>
+<body onLoad="decT()">
+  <h1>Bifi Garden - Sistema de Monitoramento e Controle de Irrigação</h1>
+  <h2>
+    <a href="/">Info</a> |
+    <a href="monitor">Monitor</a> |
+    <a href="config">Setup</a> |
+    <a href="system">System</a> |
+    <a href="reboot" onclick="return confirm('Reiniciar módulo?')">Reboot</a>
+  </h2>
+  <h3>
+  <table>
+    <tr>
+      <th colspan="2" class="msg">Reiniciar</th>
+    </tr>
+    <tr style="height: 150px;">
+      <th style="width: 25%;">Aguarde</th>
+      <td><span id="time">20</span> segundos</td>
+    </tr>
+  </table>
+  </h3>
+</body>
+</html>
